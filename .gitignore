@@ -1,0 +1,20 @@
+# gerados pelo theme-build.lua — derivados, não fonte
+**/generated-*
+**/dunstrc.d/90-tokens.conf
+
+#Arquivos de backup manual
+kitty.conf.bak
+
+# segredos
+*.key
+*.pem
+id_*
+!id_*.pub
+.env
+
+# estado de app, nunca config
+**/cache/
+**/*.log
+**/*Cache*/
+
+
