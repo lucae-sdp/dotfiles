@@ -24,3 +24,6 @@ source /usr/share/blesh/ble.sh
 
 #diminuir o path do terminal
 PROMPT_DIRTRIM=1
+
+#alias do stow
+alias dstow='stow -d ~/projects/dotfiles/config -t ~'
