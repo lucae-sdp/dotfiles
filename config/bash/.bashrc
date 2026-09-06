@@ -8,5 +8,19 @@
 export PATH="$HOME/.local/bin:$PATH"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
 export LIBVIRT_DEFAULT_URI=qemu:///system
+
+# prompt colorido
+eval "$(starship init bash)"
+
+# saída colorida nos utilitários
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip -color=auto'
+
+#Blesh
+source /usr/share/blesh/ble.sh
+
+#diminuir o path do terminal
+PROMPT_DIRTRIM=1
