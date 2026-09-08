@@ -2,89 +2,97 @@
 
 # ~/.config/starship.toml
 #
-# CORREÇÃO: todos os ícones agora são escapes Unicode (\uXXXX) em vez
-# de glifos colados. Escape é ASCII puro, então atravessa qualquer
-# copiar-e-colar sem se corromper — o starship converte na hora de
-# renderizar. Se um ícone aparecer como quadradinho, o problema é a
-# fonte; se aparecer o texto "\ue0a0" literal, é o starship não tendo
-# interpretado (verifique se está entre aspas DUPLAS, não simples).
+# Estilo encadeado, 3 tons, Catppuccin Mocha.
 #
-# Referência dos códigos: nerdfonts.com/cheat-sheet
+# ARQUITETURA DA CORRENTE
+#   bloco 1  #89b4fa  blue      -> símbolo do OS
+#   bloco 2  #45475a  surface1  -> diretório
+#   bloco 3  #313244  surface0  -> git + lua + relógio
 #
-# PRINCÍPIOS MANTIDOS
-#   - cor no TEXTO, nunca no fundo
-#   - cores por NOME da paleta ANSI, nunca hex, para acompanhar o tema
-#   - cada elemento com sua própria cor: colorido, mas dessaturado
-
-add_newline = true
-command_timeout = 500
+# Os três blocos SEMPRE existem. git_branch e lua são condicionais,
+# mas dividem o bloco 3 com o relógio, que é permanente — por isso a
+# corrente nunca quebra. Esse é o erro que quase todo preset pronto
+# comete: quando o módulo condicional some, a seta de transição fica
+# com a cor do fundo errado.
+#
+# ÍCONES em escape \uXXXX: ASCII puro, não corrompe no copiar e colar.
+# Se algum aparecer como quadradinho, é a fonte; se aparecer o texto
+# literal "\ue0a0", a string está com aspas SIMPLES (TOML só processa
+# escape em aspas duplas).
 
 format = """
-$directory$git_branch$git_status$cmd_duration$battery
+$os\
+[\ue0b0](fg:#89b4fa bg:#45475a)\
+$directory\
+[\ue0b0](fg:#45475a bg:#313244)\
+$git_branch\
+$lua\
+$time\
+[\ue0b0](fg:#313244)\
+$line_break\
 $character"""
 
-#### Diretório ################################################
+command_timeout = 500
+
+#### Bloco 1 — OS #############################################
+
+[os]
+disabled = false
+format = "[ $symbol ]($style)"
+style = "bg:#89b4fa fg:#11111b"
+
+[os.symbols]
+Arch = "\U000F08C7"
+
+#### Bloco 2 — diretório ######################################
 
 [directory]
-format = "[$path]($style)[$read_only]($read_only_style)"
-style = "blue"
+format = "[ $path ]($style)[$read_only ]($read_only_style)"
+style = "bg:#45475a fg:#cdd6f4"
+read_only = " \uf023"
+read_only_style = "bg:#45475a fg:#f38ba8"
 truncation_length = 3
 truncate_to_repo = true
-truncation_symbol = "\u2026/"          # …/
+truncation_symbol = "\u2026/"
 home_symbol = "~"
-read_only = " \uf023"                  # cadeado
-read_only_style = "red"
 
-#### Git ######################################################
+#### Bloco 3 — contexto #######################################
 
 [git_branch]
-symbol = "\ue0a0 "                     # glifo de branch (Powerline)
-format = " [$symbol$branch]($style)"
-style = "purple"
+symbol = "\ue0a0"
+format = "[ $symbol $branch ]($style)"
+style = "bg:#313244 fg:#cba6f7"
 
-[git_status]
-format = "[$all_status$ahead_behind]($style)"
-style = "yellow"
-conflicted = " \uf071"                 # triângulo de alerta
-untracked   = " ?"
-modified    = " ~"
-staged      = " +"
-renamed     = " \u00bb"                # »
-deleted     = " \u2718"                # ✘
-stashed     = " \u2261"                # ≡
-ahead    = " \u21e1${count}"           # ⇡
-behind   = " \u21e3${count}"           # ⇣
-diverged = " \u21d5${ahead_count}/${behind_count}"
+[lua]
+symbol = "\ue620"
+format = "[ $symbol $version ]($style)"
+style = "bg:#313244 fg:#89b4fa"
+version_format = "v${major}.${minor}"
 
-#### Contexto #################################################
-
-[cmd_duration]
-min_time = 3000
-format = " [\uf252 $duration]($style)"  # ampulheta
-style = "bright-black"
-
-# Bateria só aparece quando está baixa. Você já tem o percentual
-# permanente na waybar; repetir no prompt é ruído.
-[battery]
+[time]
 disabled = false
-format = " [$symbol$percentage]($style)"
-full_symbol      = "\uf240"
-charging_symbol  = "\uf0e7"            # raio
-discharging_symbol = "\uf243"
+time_format = "%R"
+format = "[ \uf017 $time ]($style)"
+style = "bg:#313244 fg:#a6adc8"
 
-[[battery.display]]
-threshold = 20
-style = "red"
-
-#### Cursor ###################################################
+#### Segunda linha ############################################
 
 [character]
-success_symbol = "[\u276f](green)"     # ❯
-error_symbol   = "[\u276f](red)"
-vimcmd_symbol  = "[\u276e](purple)"    # ❮
+success_symbol = "[\u276f](#cba6f7)"
+error_symbol   = "[\u276f](#f38ba8)"
+vimcmd_symbol  = "[\u276e](#a6e3a1)"
 
-#### Desligados de propósito ##################################
-# Sobriedade é o que NÃO aparece. Ligue um por vez, só se sentir falta.
+#### Desligados ###############################################
+# Você pediu enxuto. Ligue um por vez, só se sentir falta.
+
+[git_status]
+disabled = true
+
+[battery]
+disabled = true
+
+[cmd_duration]
+disabled = true
 
 [hostname]
 disabled = true
@@ -104,5 +112,5 @@ disabled = true
 [rust]
 disabled = true
 
-[lua]
+[golang]
 disabled = true
