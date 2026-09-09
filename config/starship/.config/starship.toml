@@ -21,15 +21,15 @@
 # escape em aspas duplas).
 
 format = """
+$os\
+[\ue0b0](fg:#476dab bg:#89b4fa)\
 $username\
 $hostname\
-$os\
 [\ue0b0](fg:#89b4fa bg:#45475a)\
 $directory\
 [\ue0b0](fg:#45475a bg:#313244)\
 $git_branch\
 $lua\
-$time\
 [\ue0b0](fg:#313244)\
 $line_break\
 $character"""
@@ -41,7 +41,7 @@ command_timeout = 500
 [os]
 disabled = false
 format = "[ $symbol ]($style)"
-style = "bg:#89b4fa fg:#11111b"
+style = "bg:#476dab fg:#11111b"
 
 [os.symbols]
 Arch = "\U000F08C7"
@@ -55,13 +55,13 @@ format = '[ $user]($style)'
 [hostname]
 disabled = false
 ssh_only = false
-format = "[@$hostname]($style)"
+format = "[@$hostname ]($style)"
 style = "bg:#89b4fa fg:#11111b"
 
 #### Bloco 2 — diretório ######################################
 
 [directory]
-format = "[ $path ]($style)[$read_only ]($read_only_style)"
+format = "[ $path]($style)[$read_only ]($read_only_style)"
 style = "bg:#45475a fg:#cdd6f4"
 read_only = " \uf023"
 read_only_style = "bg:#45475a fg:#f38ba8"
@@ -84,7 +84,7 @@ style = "bg:#313244 fg:#89b4fa"
 version_format = "v${major}.${minor}"
 
 [time]
-disabled = false
+disabled = true
 time_format = "%R"
 format = "[ \uf017 $time ]($style)"
 style = "bg:#313244 fg:#a6adc8"
