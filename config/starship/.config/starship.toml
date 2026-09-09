@@ -21,6 +21,8 @@
 # escape em aspas duplas).
 
 format = """
+$username\
+$hostname\
 $os\
 [\ue0b0](fg:#89b4fa bg:#45475a)\
 $directory\
@@ -34,7 +36,7 @@ $character"""
 
 command_timeout = 500
 
-#### Bloco 1 — OS #############################################
+### Bloco 1 — os, username and hostname ###
 
 [os]
 disabled = false
@@ -44,6 +46,18 @@ style = "bg:#89b4fa fg:#11111b"
 [os.symbols]
 Arch = "\U000F08C7"
 
+[username]
+show_always = true
+style_user = "bg:#89b4fa fg:#11111b"
+style_root = "bg:#89b4fa fg:#11111b"
+format = '[ $user]($style)'
+
+[hostname]
+disabled = false
+ssh_only = false
+format = "[@$hostname]($style)"
+style = "bg:#89b4fa fg:#11111b"
+
 #### Bloco 2 — diretório ######################################
 
 [directory]
@@ -51,7 +65,7 @@ format = "[ $path ]($style)[$read_only ]($read_only_style)"
 style = "bg:#45475a fg:#cdd6f4"
 read_only = " \uf023"
 read_only_style = "bg:#45475a fg:#f38ba8"
-truncation_length = 3
+truncation_length = 2
 truncate_to_repo = true
 truncation_symbol = "\u2026/"
 home_symbol = "~"
@@ -92,12 +106,6 @@ disabled = true
 disabled = true
 
 [cmd_duration]
-disabled = true
-
-[hostname]
-disabled = true
-
-[username]
 disabled = true
 
 [package]
