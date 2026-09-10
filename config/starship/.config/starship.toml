@@ -21,8 +21,11 @@
 # escape em aspas duplas).
 
 format = """
+[█](#08437b)\
+[█](#1a538d)\
+[█](#2d639f)\
 $os\
-[\ue0b0](fg:#476dab bg:#89b4fa)\
+[\ue0b0](fg:#3f73b1 bg:#89b4fa)\
 $username\
 $hostname\
 [\ue0b0](fg:#89b4fa bg:#45475a)\
@@ -41,7 +44,7 @@ command_timeout = 500
 [os]
 disabled = false
 format = "[ $symbol ]($style)"
-style = "bg:#476dab fg:#11111b"
+style = "bg:#3f73b1 fg:#101010"
 
 [os.symbols]
 Arch = "\U000F08C7"
