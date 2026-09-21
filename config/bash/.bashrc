@@ -33,8 +33,8 @@ shopt -s histappend
 # whoever defines comes before whoever uses. bash reads top to bottom, once.
 # the guard prevents PATH from growing a duplicate entry on every `exec bash`.
 [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$HOME/.local/bin:$PATH"
-export $EDITOR=nvim
-export $VISUAL=nvim
+export EDITOR=nvim
+export VISUAL=nvim
 ### section 4 - colorfull utilitarians ###
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
