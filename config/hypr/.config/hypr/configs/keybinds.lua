@@ -1,25 +1,16 @@
 -- keybinds
 
--- vars
+-- call vars
+local v = require("configs/vars") -- gets the var.lua table of vars
 
--- program vars
-local term = "kitty"
-local browser = "firefox --new-window about:profilemanager" 
-local filemngr = "kitty yazi"
-local 
-
--- key vars
-local mainmod = "SUPER"
-
--- main binds
-hl.bind(mainmod .. " + Q", hl.dsp.exec_cmd(term))
-hl.bind(mainmod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(mainmod .. " + E", hl.dsp.exec_cmd(filemngr))
-hl.bind(mainmod .. " + Q", hl.dsp.exec_cmd(term))
-hl.bind(mainmod .. " + Q", hl.dsp.exec_cmd(term))
-hl.bind(mainmod .. " + Q", hl.dsp.exec_cmd(term))
-hl.bind(mainmod .. " + Q", hl.dsp.exec_cmd(term))
-hl.bind(mainmod .. " + Q", hl.dsp.exec_cmd(term))
-hl.bind(mainmod .. " + Q", hl.dsp.exec_cmd(term))
-hl.bind(mainmod .. " + Q", hl.dsp.exec_cmd(term))
-hl.bind(mainmod .. " + Q", hl.dsp.exec_cmd(term))
+-- main
+hl.bind(v.mainmod .. " + Q", hl.dsp.exec_cmd(v.term))
+hl.bind(v.mainmod .. " + B", hl.dsp.exec_cmd(v.browser))
+hl.bind(v.mainmod .. " + E", hl.dsp.exec_cmd(v.filemngr))
+hl.bind(v.mainmod .. " + SPACE", hl.dsp.exec_cmd(v.menu))
+-- apps
+hl.bind(v.mainmod .. " + O", hl.dsp.exec_cmd("obsidian"))
+-- commands
+hl.bind(v.mainmod .. " + C", hl.dsp.window.close())
+-- windowrule
+hl.bind(v.mainmod .. " + ", hl.dsp.exec_cmd())
