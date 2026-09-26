@@ -13,4 +13,4 @@ hl.bind(v.mainmod .. " + O", hl.dsp.exec_cmd("obsidian"))
 -- commands
 hl.bind(v.mainmod .. " + C", hl.dsp.window.close())
 -- windowrule
-hl.bind(v.mainmod .. " + ", hl.dsp.exec_cmd())
+-- hl.bind(v.mainmod .. " + ", hl.dsp.exec_cmd())
