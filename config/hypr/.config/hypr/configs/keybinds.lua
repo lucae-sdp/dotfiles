@@ -47,6 +47,10 @@
  hl.bind("SUPER + up", hl.dsp.focus({direction = "up"}))
  hl.bind("SUPER + down", hl.dsp.focus({direction = "down"}))
 
+ -- toggle fullscreen
+ hl.bind("SUPER + F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
+ hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
+
 
  -- ------------ --
  -- laptop binds --
