@@ -60,6 +60,12 @@
  hl.bind("SUPER + up", hl.dsp.focus({direction = "up"}))
  hl.bind("SUPER + down", hl.dsp.focus({direction = "down"}))
 
+ -- move windows
+ hl.bind("SUPER + SHIFT + left", hl.dsp.window.move({direction = "left", group_aware = "true"}))
+ hl.bind("SUPER + SHIFT + right", hl.dsp.window.move({direction = "right", group_aware = "true"}))
+ hl.bind("SUPER + SHIFT + up", hl.dsp.window.move({direction = "up", group_aware = "true"}))
+ hl.bind("SUPER + SHIFT + down", hl.dsp.window.move({direction = "down", group_aware = "true"}))
+
  -- toggle fullscreen
  hl.bind("SUPER + F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
  hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
@@ -68,11 +74,9 @@
  hl.bind("SUPER + V", hl.dsp.window.float({action = "toggle"}))
  hl.bind("SUPER + A", hl.dsp.layout("togglesplit"))
 
-
  -- mouse binds drag and resize
  hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), {mouse = true})
  hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), {mouse = true})
-
 
 
  -- ------------ --
