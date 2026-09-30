@@ -37,7 +37,11 @@
  -- printscreen --
  -- ----------- --
  
- hl.bind("SUPER + S", hl.dsp.exec_cmd("grim -g '$(slurp)' "))
+ -- region screenshot
+ hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh region"))
+
+ -- fullscreen screenshot
+ hl.bind("SUPER + S", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh full"))
 
 
  -- --------- --
