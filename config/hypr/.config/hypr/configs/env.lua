@@ -8,3 +8,4 @@
 	 }
  })
 
+ hl.env("EDITOR", "nvim")
