@@ -47,6 +47,10 @@
  hl.bind("SUPER + up", hl.dsp.focus({direction = "up"}))
  hl.bind("SUPER + down", hl.dsp.focus({direction = "down"}))
 
+ -- mouse binds drag and resize
+ hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), {mouse = true})
+ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), {mouse = true})
+
  -- toggle fullscreen
  hl.bind("SUPER + F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
  hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
