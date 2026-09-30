@@ -16,7 +16,7 @@
  -- main keybinds --
  -- ------------- --
 
- hl.bind("SUPER + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+ hl.bind("SUPER + M", hl.dsp.exec_cmd("uwsm stop"))
  hl.bind("SUPER + Q", hl.dsp.exec_cmd(v.term))
  hl.bind("SUPER + B", hl.dsp.exec_cmd(v.browser))
  hl.bind("SUPER + E", hl.dsp.exec_cmd(v.filemngr))
