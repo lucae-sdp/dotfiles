@@ -16,12 +16,13 @@
  -- main keybinds --
  -- ------------- --
 
- hl.bind("SUPER + M", hl.dsp.exec_cmd("uwsm stop"))
+ hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("uwsm stop"))
  hl.bind("SUPER + Q", hl.dsp.exec_cmd(v.term))
  hl.bind("SUPER + B", hl.dsp.exec_cmd(v.browser))
  hl.bind("SUPER + E", hl.dsp.exec_cmd(v.filemngr))
  hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(v.menu))
  hl.bind("SUPER + C", hl.dsp.window.close())
+ hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock"))
 
 
  -- ---- --
@@ -29,6 +30,14 @@
  -- ---- --
 
  hl.bind("SUPER + O", hl.dsp.exec_cmd("obsidian"))
+ hl.bind("SUPER + M", hl.dsp.exec_cmd("spotify-launcher"))
+
+
+ -- ----------- --
+ -- printscreen --
+ -- ----------- --
+ 
+ hl.bind("SUPER + S", hl.dsp.exec_cmd("grim -g '$(slurp)' "))
 
 
  -- --------- --
