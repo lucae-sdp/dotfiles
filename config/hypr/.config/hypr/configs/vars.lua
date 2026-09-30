@@ -1,9 +1,9 @@
--- shared vars module
-local M = {} --M from module, empty table.
+ -- shared vars module
+ local m = {} --m from module, empty table.
 
-M.term = "kitty" -- kitty terminal
-M.browser = "firefox --new-window about:profilemanager" -- firefox with profile manager opened
-M.filemngr = "kitty yazi" -- TUI file explorer
-M.menu = "rofi -show run" -- rofi
+ m.term = "kitty" -- kitty terminal
+ m.browser = "firefox --new-window about:profilemanager" -- firefox with profile manager opened
+ m.filemngr = "kitty yazi" -- TUI file explorer
+ m.menu = "rofi -show drun" -- rofi
 
-return M
+ return m
