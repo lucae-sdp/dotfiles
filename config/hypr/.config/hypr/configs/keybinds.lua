@@ -72,7 +72,7 @@
 
  -- toggle tile rules
  hl.bind("SUPER + V", hl.dsp.window.float({action = "toggle"}))
- hl.bind("SUPER + A", hl.dsp.layout("togglesplit"))
+ hl.bind("SUPER + J", hl.dsp.layout("togglesplit"))
 
  -- mouse binds drag and resize
  hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), {mouse = true})
