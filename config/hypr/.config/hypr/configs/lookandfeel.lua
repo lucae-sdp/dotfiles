@@ -2,7 +2,7 @@
  -- look and feel --
  -- ------------- --
  
- local V = require("configs/theme")
+ local V = require("themes/theme")
  
 
  hl.config({
