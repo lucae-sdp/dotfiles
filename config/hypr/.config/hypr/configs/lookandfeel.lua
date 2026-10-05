@@ -18,5 +18,11 @@
 			 inactive_border = V.iborder,
 		 }
 
-	 }
+	 },
+
+	 dwindle = {
+		 preserve_split = true
+	 },
  })
+
+
